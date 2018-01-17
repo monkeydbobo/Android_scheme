@@ -1,0 +1,22 @@
+Android Scheme
+通过浏览器下发的scheme会在Logcat里面打印出
+I/ActivityManager(  917): START u0 {act=android.intent.action.VIEW cat=[android.intent.category.BROWSABLE] dat=tmast://appdetails?r=0.45871717478886165&pname=com.kugou.android&oplist=1;2&via=ANDROIDWXZ.YYB.OTHERBROWSER&downl_biz_id=991604&appid=9685&outerCallTime=1516087379878&outerCallType=1&outerCallMode=1 cmp=com.tencent.android.qqdownloader/com.tencent.pangu.link.SplashActivity (has extras)} from pid 17159
+
+Scheme
+dat=tmast://download?downl_biz_id=myapp_touch&downl_url=http://imtt.dd.qq.com/16891/5BE7B1CBD0F6C6C21D34F166F5533A40.apk?fsname=com.youku.phone_6.9.0_130.apk&csr=97c2&via=ANDROIDH5.YYB.STORE&r= cmp=com.tencent.android.qqdownloader/com.tencent.pangu.link.SplashActivity (has extras)} from pid 15921
+
+腾讯应用宝在用market启动的时候，会因为加载的资源文件被小米防火墙禁止
+I/XiaomiFirewall( 1970): firewall pkgName:com.tencent.android.qqdownloader, result:0x0
+W/System.err(22339): java.io.IOException: open failed: EACCES (Permission denied)
+W/System.err(22339): 	at java.io.File.createNewFile(File.java:946)
+W/System.err(22339): 	at com.tencent.tbs.sdk.extension.s.o(Unknown Source)
+W/System.err(22339): 	at com.tencent.tbs.sdk.extension.TbsSDKExtension.a(Unknown Source)
+W/System.err(22339): 	at com.tencent.tbs.sdk.extension.TbsSDKExtension.b(Unknown Source)
+W/System.err(22339): 	at com.tencent.tbs.sdk.extension.TbsSDKExtension.a(Unknown Source)
+W/System.err(22339): 	at com.tencent.tbs.sdk.extension.n.run(Unknown Source)
+W/System.err(22339): 	at java.util.Timer$TimerImpl.run(Timer.java:284)
+W/System.err(22339): Caused by: libcore.io.ErrnoException: open failed: EACCES (Permission denied)
+W/System.err(22339): 	at libcore.io.Posix.open(Native Method)
+W/System.err(22339): 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:110)
+W/System.err(22339): 	at java.io.File.createNewFile(File.java:939)
+W/System.err(22339): 	... 6 more
